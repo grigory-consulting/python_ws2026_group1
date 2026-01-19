@@ -36,6 +36,6 @@ p1.shift(2,1)
 print(p1)
 print([p1, p2+p1, p2+p2])
 
-#for i in range(100):
-#    p = Point2D(i,i+1)
-#    print(p)
+for i in range(100):
+    p = Point2D(i,i+1)
+    print(p)
