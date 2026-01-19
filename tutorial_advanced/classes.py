@@ -21,7 +21,6 @@ class Point2D:
     def shift_x(self, dx): # move point alongside the x-axis 
         self.x += dx 
     
-    # TODO  shift(self,dx,dy)
     def shift_y(self, dy):
         self.y += dy
     
