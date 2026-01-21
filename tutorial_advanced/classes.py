@@ -72,7 +72,6 @@ class Point3D(Point2D): # by inheritance from Point2D.
     # write a function that calculates the distance from the point to origin (zero)
     def distance_0(self):
         #return (self.x**2 + self.y**2 + self.z**2)**0.5 
-
         val = super().distance_()**2 # self.x**2 + self.y**2
         val += self.z**2
         return val ** 0.5
@@ -81,3 +80,68 @@ class Point3D(Point2D): # by inheritance from Point2D.
 p4 = Point3D(1,2,3)
 p4.shift(0.4,2,-3)
 print(p4)
+
+
+# Multiple inheritance
+
+class A:
+    def methodA(self):
+        print("I am methodA")
+
+class B:
+   def methodB(self):
+        print("I am methodB") 
+
+class C(A,B):
+    pass # No implementation here 
+
+obj = C()
+obj.methodA()
+obj.methodB()
+
+
+print("-----------------------------")
+
+class A:
+    def method(self):
+        print("I am methodA")
+
+class B:
+   def method(self):
+        print("I am methodB") 
+
+class C(B,A):
+    pass # No implementation here 
+
+obj = C()
+obj.method()
+
+print(C.mro()) # method resolution order 
+
+print("---------------------------")
+
+# Diamond problem 
+
+class A:
+    def show(self):
+        print("A.show")
+
+class B(A):
+    def show(self):
+        print("B.show")
+        super().show()
+
+class C(A):
+    def show(self):
+        print("C.show")
+        super().show()
+
+class D(C,B):
+    def show(self):
+        print("D.show")
+        super().show()
+
+obj = D()
+obj.show()
+
+print(D.mro())
